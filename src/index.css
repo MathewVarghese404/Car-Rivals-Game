@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", monospace;
+
+  --color-brand: #FF4E00;
+  --color-success: #00FF00;
+  --color-warning: #FFCC00;
+  --color-danger: #FF0000;
+  
+  --color-dark: #0F1115;
+  --color-panel: #1A1D23;
+  --color-border: #2A2D35;
+  --color-text-main: #E0E0E0;
+  
+  --color-neon-blue: #00F0FF;
+  --color-neon-pink: #FF00E5;
+  --color-card-bg: #1A1D23;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-[var(--color-text-main)] font-sans selection:bg-brand selection:text-black;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .slam-in {
+    animation: slamIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .text-shadow-neon {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+}
+
+@keyframes slamIn {
+  0% { transform: scale(2) translateY(-100px) skewX(-15deg); opacity: 0; }
+  100% { transform: scale(1) translateY(0) skewX(-15deg); opacity: 1; }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+.panel-gradient {
+  background: linear-gradient(90deg, #0F1115 0%, #1A1D23 100%);
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 255, 0, 0.2);
+  top: 50%;
+}
